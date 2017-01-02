@@ -35,7 +35,7 @@ class MountainCar():
         self.g = g # gravitational constant
         self.d = d # minima location
         self.H = H # height of the saddle point
-        self.m = m # mass of the car 
+        self.m = m # mass of the car
         self.force_amplitude = force_amplitude # amplitude of the force applied by the engine
         self.reward_amplitude = reward_amplitude # value of the reward
         self.reward_threshold = reward_threshold # x-axis threshold for the obtention of reward
@@ -74,8 +74,7 @@ class MountainCar():
     def _h(self, x):
         """Return the value of the landscape function h in x.
         """
-        self.h=(x - self.d)**2 * (x + self.d)**2 / ((self.d**4/self.H)+x**2);
-        return h
+        return (x - self.d)**2 * (x + self.d)**2 / ((self.d**4/self.H)+x**2)
         
     def _h_prime(self, x):
         """Return the value of the first derivative of the landscape function h in x.
@@ -92,7 +91,7 @@ class MountainCar():
             + c * (-self.d**4 + 6*self.d**2 * x**2 + 3*x**4)
             + 3 * self.d**4 * x**2
             + x**6
-        ) / (c + x**2)**3;
+        ) / (c + x**2)**3
 
     def _energy(self, x, x_d):
         """Return the total energy of the car with variable x and x_d.
