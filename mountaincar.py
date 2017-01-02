@@ -81,20 +81,18 @@ class MountainCar():
         """Return the value of the first derivative of the landscape function h in x.
         """
         c = self.d**4/self.H
-        self.h_d=2 * x * (x**2 - self.d**2) * (2*c + self.d**2  + x**2) / (c+x**2)**2
-        return h_d
+        return 2 * x * (x**2 - self.d**2) * (2*c + self.d**2  + x**2) / (c+x**2)**2
 
     def _h_second(self, x):
         """Return the value of the second derivative of the landscape function h in x.
         """
         c = self.d**4/self.H
-        self.h_dd=2 * (
+        return 2 * (
             - 2 * c**2 * (self.d**2 - 3*x**2) 
             + c * (-self.d**4 + 6*self.d**2 * x**2 + 3*x**4)
             + 3 * self.d**4 * x**2
             + x**6
         ) / (c + x**2)**3;
-        return h_dd
 
     def _energy(self, x, x_d):
         """Return the total energy of the car with variable x and x_d.
